@@ -14,15 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const mongodb_memory_server_1 = require("mongodb-memory-server");
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    let mongoUri = process.env.MONGODB_URI;
-    // Check if we want to use an in-memory database
-    if (process.env.USE_MEMORY_DB === 'true') {
-        const mongoMemoryServer = yield mongodb_memory_server_1.MongoMemoryServer.create();
-        mongoUri = mongoMemoryServer.getUri();
-    }
+    const mongoMemoryServer = yield mongodb_memory_server_1.MongoMemoryServer.create();
+    let mongoUri = mongoMemoryServer.getUri();
     try {
         yield mongoose_1.default.connect(mongoUri);
         console.log('MongoDB connected');
