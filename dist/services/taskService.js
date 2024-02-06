@@ -17,7 +17,6 @@ class TaskService {
     }
     addTask(title, description, isDone = false, dueDate) {
         return __awaiter(this, void 0, void 0, function* () {
-            // Assuming you want to set a default due date as today's date, adjust as necessary
             return this.taskRepository.createTask(title, description, isDone, dueDate);
         });
     }

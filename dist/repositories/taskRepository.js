@@ -18,7 +18,7 @@ class TaskRepository {
                 title,
                 description,
                 isDone: isDone,
-                dueDate: new Date(dueDate) // Placeholder, you might want to handle due dates differently
+                dueDate: new Date(dueDate)
             });
             yield task.save();
             return task;

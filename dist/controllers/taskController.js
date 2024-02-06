@@ -20,7 +20,7 @@ class TaskController {
             const { title, description, isDone, dueDate } = req.body;
             try {
                 const task = yield this.taskService.addTask(title, description, isDone, new Date(dueDate));
-                req.app.get('io').emit('taskAdded', task); // Emit an event for real-time updates
+                req.app.get('io').emit('taskAdded', task);
                 res.status(201).json(task);
             }
             catch (error) {
@@ -50,7 +50,7 @@ class TaskController {
                 if (!task) {
                     return res.status(404).json({ message: 'Task not found' });
                 }
-                req.app.get('io').emit('taskUpdated', task); // Emit an event for real-time updates
+                req.app.get('io').emit('taskUpdated', task);
                 res.status(200).json(task);
             }
             catch (error) {
@@ -67,7 +67,7 @@ class TaskController {
                 if (!task) {
                     return res.status(404).json({ message: 'Task not found' });
                 }
-                req.app.get('io').emit('taskDeleted', taskId); // Emit an event for real-time updates
+                req.app.get('io').emit('taskDeleted', taskId);
                 res.status(204).send();
             }
             catch (error) {

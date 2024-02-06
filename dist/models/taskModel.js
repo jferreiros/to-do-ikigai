@@ -29,6 +29,6 @@ const taskSchema = new mongoose_1.Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
     isDone: { type: Boolean, default: false },
-    dueDate: { type: Date, required: true } // Ensure this aligns with how you want to handle due dates, possibly making it optional
+    dueDate: { type: Date, required: true }
 });
 exports.Task = mongoose_1.default.model('Task', taskSchema);

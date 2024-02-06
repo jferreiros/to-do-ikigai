@@ -25,7 +25,7 @@ app.use(express_1.default.static('public'));
 app.use(express_1.default.json());
 app.use('/api', routes_1.default);
 const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, database_1.default)(); // Connect to MongoDB
+    yield (0, database_1.default)();
     httpServer.listen(PORT, () => {
         console.log(`Server is running on http://localhost:${PORT}`);
     });
@@ -33,6 +33,5 @@ const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
 startServer().catch(console.error);
 io.on('connection', (socket) => {
     console.log('A user connected');
-    // You can also listen for events from the client and emit responses here
 });
-app.set('io', io); // This makes io available as req.app.get('io') in your routes
+app.set('io', io);
