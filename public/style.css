@@ -1,0 +1,90 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.task-form input, .task-form label {
+    flex: 1 1 200px;
+}
+
+.task-form input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 5px;
+}
+
+.task-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.task-form button:hover {
+    background-color: #0056b3;
+}
+
+.task-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.table-header, .task-list li {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 1fr 2fr;
+    padding: 10px;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.table-header {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+.task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.button-edit, .button-delete {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .task-form {
+        flex-direction: column;
+    }
+
+    .task-form input, .task-form label, .task-form button {
+        flex: 1 1 auto;
+    }
+
+    .table-header, .task-list li {
+        grid-template-columns: 1fr 1fr;
+    }
+}
